@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="doggyadvanture.Controller">
+   <children>
+      <ImageView fx:id="Doggy_ImageView" fitHeight="150.0" fitWidth="130.0" layoutX="294.0" layoutY="132.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Asset/images/Korone.png" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport></ImageView>
+      <ImageView fx:id="Korone_ori_ImageView" fitHeight="320.0" fitWidth="130.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Asset/images/Korone_ori.png" />
+         </image>
+      </ImageView>
+      <DialogPane fx:id="dialogPane" layoutX="175.0" layoutY="380.0" prefHeight="160.0" prefWidth="450.0">
+         <content>
+            <Label fx:id="dialogTextLabel" text="Label" />
+         </content>
+         <graphic>
+            <ImageView fx:id="dialogImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </DialogPane>
+   </children>
+</AnchorPane>
