@@ -25,18 +25,24 @@ public class Controller implements Initializable {
     
     @FXML
     private DialogPane dialogPane;
+    @FXML
+    private Label dialogTextLabel;
     
     Doggy doggy = new Doggy();
+    Dialog dialog = new Dialog();
     
     double curSpeed = 0;
     double limitSpeed = 20;
 //    SpeedFade speedFade = new SpeedFade(this);
+    
+    String filePath = "src\\doggyadvanture\\text.txt";
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         doggy.init(Doggy_ImageView);
 //        speedFade.start();
         dialogPane.getContent().setVisible(false);
+        
     }    
     
     public void moveUp(){
@@ -124,11 +130,18 @@ public class Controller implements Initializable {
     public void checkCollide(){
        if( Collide.AABB(Doggy_ImageView, Korone_ori_ImageView)){
            showDialog();
+       }else{
+           closeDialog();
        }
     }
     
     public void showDialog(){
         dialogPane.getContent().setVisible(true);
-        Dialog dialog = new Dialog();
+        dialogTextLabel.setText(dialog.readfile(filePath));
+    }
+    
+    public void closeDialog(){
+        dialogTextLabel.setText("");
+        dialogPane.getContent().setVisible(false);
     }
 }
