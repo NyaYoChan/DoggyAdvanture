@@ -1,20 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package doggyadvanture;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.util.Duration;
 
 public class Controller implements Initializable {
     
@@ -23,10 +23,12 @@ public class Controller implements Initializable {
     @FXML
     private ImageView Korone_ori_ImageView;
     
+    Image korone_ori_image = new Image(getClass().getResourceAsStream(Path.KORONE_IMAGE));
+    
     @FXML
     private DialogPane dialogPane;
     @FXML
-    private Label dialogTextLabel;
+    private TextArea dialogTextArea;
     
     Doggy doggy = new Doggy();
     Dialog dialog = new Dialog();
@@ -35,11 +37,10 @@ public class Controller implements Initializable {
     double limitSpeed = 20;
 //    SpeedFade speedFade = new SpeedFade(this);
     
-    String filePath = "src\\doggyadvanture\\text.txt";
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         doggy.init(Doggy_ImageView);
+        Korone_ori_ImageView.setImage(korone_ori_image);
 //        speedFade.start();
         dialogPane.getContent().setVisible(false);
         
@@ -129,19 +130,24 @@ public class Controller implements Initializable {
     
     public void checkCollide(){
        if( Collide.AABB(Doggy_ImageView, Korone_ori_ImageView)){
-           showDialog();
+           showDialog(Path.TEXT_1);
        }else{
            closeDialog();
        }
     }
     
-    public void showDialog(){
+//    public void showDialog(String path){
+//        dialogPane.getContent().setVisible(true);
+//        dialogTextLabel.setText(dialog.readfile(path));
+//    }
+    
+    public void showDialog(String path){
         dialogPane.getContent().setVisible(true);
-        dialogTextLabel.setText(dialog.readfile(filePath));
+        dialog.showDialog(dialogTextArea, path);
     }
     
     public void closeDialog(){
-        dialogTextLabel.setText("");
+        dialogTextArea.clear();
         dialogPane.getContent().setVisible(false);
     }
 }

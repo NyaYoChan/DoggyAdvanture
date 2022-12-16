@@ -5,10 +5,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Doggy {
-    Image doggy_image = new Image(getClass().getResourceAsStream("/Asset/images/Korone.png"));
+    Image doggy_image = new Image(getClass().getResourceAsStream(Path.DOGGY_IMAGE));
     
     double width = 140;
     double height = 150;
+    
+    String curDirection = "Right";
     
     public void init(ImageView Doggy_ImageView){
         Doggy_ImageView.setPreserveRatio(false);
