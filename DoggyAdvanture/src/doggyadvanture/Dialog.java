@@ -36,7 +36,7 @@ public class Dialog {
     
     public String readfile(String filePath){
         try{
-            File file = new File(filePath);
+            File file = new File(getClass().getResource(filePath).getFile());
             FileReader reader = new FileReader(file);
             int ch = 0;
             String context = "";
@@ -52,43 +52,43 @@ public class Dialog {
         return "-1";
     }
     
-    public void showDialog(TextArea dialogTextArea, String path){
-        try{
-            File file = new File(path);
-            FileReader reader = new FileReader(file);
-            int ch = 0;
-            String context = "";
-            final String context_copy;
-            while((ch = reader.read()) != -1){
-//                System.out.print((char)ch);
-                context += (char)ch;
-                
-            }
-            reader.close();
-            
-            context_copy = context;
-            KeyFrame start = new KeyFrame(Duration.ZERO, new EventHandler<ActionEvent>(){
-                @Override
-                public void handle(ActionEvent event) {
-                    dialogTextArea.clear();
-                }
-
-            });
-            
-            KeyFrame end = new KeyFrame(Duration.millis(3000), new EventHandler<ActionEvent>(){
-                @Override
-                public void handle(ActionEvent event) {
-                    dialogTextArea.appendText(context_copy);
-                }
-
-            });
-
-            Timeline t = new Timeline();
-            t.getKeyFrames().addAll(start, end);
-            t.setCycleCount(1);
-            t.play();
-        }catch(Exception e){
-            System.out.println(e);
-        }
-    }
+//    public void showDialog(TextArea dialogTextArea, String path){
+//        try{
+//            File file = new File(path);
+//            FileReader reader = new FileReader(file);
+//            int ch = 0;
+//            String context = "";
+//            final String context_copy;
+//            while((ch = reader.read()) != -1){
+////                System.out.print((char)ch);
+//                context += (char)ch;
+//                
+//            }
+//            reader.close();
+//            
+//            context_copy = context;
+//            KeyFrame start = new KeyFrame(Duration.ZERO, new EventHandler<ActionEvent>(){
+//                @Override
+//                public void handle(ActionEvent event) {
+//                    dialogTextArea.clear();
+//                }
+//
+//            });
+//            
+//            KeyFrame end = new KeyFrame(Duration.millis(3000), new EventHandler<ActionEvent>(){
+//                @Override
+//                public void handle(ActionEvent event) {
+//                    dialogTextArea.appendText(context_copy);
+//                }
+//
+//            });
+//
+//            Timeline t = new Timeline();
+//            t.getKeyFrames().addAll(start, end);
+//            t.setCycleCount(1);
+//            t.play();
+//        }catch(Exception e){
+//            System.out.println(e);
+//        }
+//    }
 }

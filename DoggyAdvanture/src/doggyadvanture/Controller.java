@@ -132,7 +132,7 @@ public class Controller implements Initializable {
        if( Collide.AABB(Doggy_ImageView, Korone_ori_ImageView)){
            showDialog(Path.TEXT_1);
        }else{
-           closeDialog();
+//           closeDialog();
        }
     }
     
@@ -143,7 +143,8 @@ public class Controller implements Initializable {
     
     public void showDialog(String path){
         dialogPane.getContent().setVisible(true);
-        dialog.showDialog(dialogTextArea, path);
+        dialog.readfile(path);
+//        dialog.showDialog(dialogTextArea, path);
     }
     
     public void closeDialog(){

@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -14,7 +15,7 @@ public class GameScene {
     public void scene_menu(Stage stage) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource(Path.SCENE_MENU));
         Parent root = loader.load();
-        javafx.scene.Scene scene = new javafx.scene.Scene(root);
+        Scene scene = new Scene(root);
 
         scene.setOnMouseClicked(new EventHandler <MouseEvent>(){
             @Override
@@ -44,9 +45,10 @@ public class GameScene {
     public void scene_1(Stage stage) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource(Path.SCENE_1));
         Parent root = loader.load();
-        javafx.scene.Scene scene = new javafx.scene.Scene(root);
+        Scene scene = new Scene(root);
         
         Controller controller = loader.getController();
+        
         scene.setOnKeyPressed(new EventHandler <KeyEvent>(){
             @Override
             public void handle(KeyEvent event){
