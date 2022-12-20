@@ -13,6 +13,6 @@ public class Path {
     
     
     // texts
-    protected static final String TEXT_1 = "/Asset/texts/text.txt";
+    protected static final String TEXT_1 = "/Asset/texts/text";
     
 }

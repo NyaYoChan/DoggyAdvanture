@@ -36,13 +36,14 @@ public class Dialog {
     
     public String readfile(String filePath){
         try{
-            File file = new File(getClass().getResource(filePath).getFile());
+            File file = new File("src" + filePath);
             FileReader reader = new FileReader(file);
             int ch = 0;
             String context = "";
             while((ch = reader.read()) != -1){
 //                System.out.print((char)ch);
                 context += (char)ch;
+                System.out.println(context);
             }
             reader.close();
             return context;
@@ -54,7 +55,7 @@ public class Dialog {
     
 //    public void showDialog(TextArea dialogTextArea, String path){
 //        try{
-//            File file = new File(path);
+//            File file = new File("src" + path);
 //            FileReader reader = new FileReader(file);
 //            int ch = 0;
 //            String context = "";
